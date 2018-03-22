@@ -6,11 +6,17 @@ def main():
     print('Fetching your vpcs. Wait a moment...')
     vpcs = ec2.describe_vpcs()['Vpcs']
 
+    if len(vpcs) > 0:
+        pass
+    else:
+        print("No vpc available.")
+        return
+
     for vpc in vpcs:
         print('  * {}'.format(vpc['VpcId']))
 
     your_vpc = click.prompt('Input your vpc', type=click.Choice([ vpc['VpcId'] for vpc in vpcs ]))
-    return
+    # return
 
     response = ec2.describe_subnets(
             Filters=[

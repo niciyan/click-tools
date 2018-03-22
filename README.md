@@ -1,7 +1,7 @@
 # About
 This repo contains cli tools with click(Python library).
 
-# Requiments
+# Requirements
 * Python3
 * click
 * boto3
