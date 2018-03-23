@@ -15,6 +15,8 @@ def main():
         response = ec2.describe_vpcs()
         vpcs = response['Vpcs']
         your_vpc = handle_vpcs(vpcs)
+
+        print('Fetching your subnets. Wait a moment.')
         response = ec2.describe_subnets(
                 Filters=[ { 'Name':'vpc-id', 'Values': [ your_vpc] }, ]
                 )
